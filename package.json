@@ -1,0 +1,101 @@
+{
+  "name": "globalpay-platform",
+  "version": "1.0.0",
+  "description": "Enterprise payment platform with real-time rails, embedded finance, and global payroll",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "build": "npm run lint && npm run test",
+    "docker:build": "docker build -t globalpay-platform .",
+    "docker:run": "docker run -p 3000:3000 globalpay-platform"
+  },
+  "keywords": [
+    "payments",
+    "fintech",
+    "real-time-payments",
+    "embedded-finance",
+    "payroll",
+    "reconciliation",
+    "compliance"
+  ],
+  "author": "GlobalPay Team",
+  "license": "PROPRIETARY",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.1.5",
+    "cors": "^2.8.5",
+    "compression": "^1.7.4",
+    "morgan": "^1.10.0",
+    "winston": "^3.8.2",
+    "dotenv": "^16.0.3",
+    "joi": "^17.9.1",
+    "jsonwebtoken": "^9.0.0",
+    "bcryptjs": "^2.4.3",
+    "uuid": "^9.0.0",
+    "moment": "^2.29.4",
+    "lodash": "^4.17.21",
+    "axios": "^1.4.0",
+    "pg": "^8.10.0",
+    "redis": "^4.6.5",
+    "kafka-node": "^5.0.0",
+    "stripe": "^12.2.0",
+    "plaid": "^11.0.0",
+    "node-cron": "^3.0.2",
+    "@aws-sdk/client-s3": "^3.292.0",
+    "@aws-sdk/client-kms": "^3.292.0",
+    "crypto": "^1.0.1",
+    "multer": "^1.4.5-lts.1",
+    "express-validator": "^6.15.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "jest": "^29.5.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "prettier": "^2.8.8",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "@types/jest": "^29.5.1",
+    "docker": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/globalpay/platform.git"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  }
+}
